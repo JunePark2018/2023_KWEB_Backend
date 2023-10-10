@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 
-const stringify = obj => Object.keys(obj).map(k => `${k}: ${obj[k]}`).join('\n')
+const stringify = obj => Object.keys(obj).map(k => `${k}: ${obj[k]}`).join('\n');
 
 app.get('/', (req, res) => {
     res.send(stringify(req.query));
@@ -15,6 +15,10 @@ app.post('/', (req, res) => {
 });
 
 app.put('/', (req, res) => {
+    res.send(stringify(req.body));
+});
+
+app.delete('/', (req, res) => {
     res.send(stringify(req.body));
 });
 

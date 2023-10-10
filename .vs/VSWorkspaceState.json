@@ -1,10 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Chapter3",
     "\\HW",
     "\\HW\\Chapter2",
-    "\\HW\\Chapter2\\Exercise2"
+    "\\HW\\Chapter2\\Exercise2",
+    "\\HW\\Chapter3",
+    "\\HW\\Chapter3\\Exercise1",
+    "\\HW\\Chapter3\\Exercise3",
+    "\\HW\\Chapter3\\Exercise4"
   ],
-  "SelectedNode": "\\HW\\Chapter2\\Exercise2\\index.2.2.js",
+  "SelectedNode": "\\HW\\Chapter3\\Exercise3\\index.3.3.js",
   "PreviewInSolutionExplorer": false
 }
