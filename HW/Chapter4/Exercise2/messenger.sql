@@ -1,0 +1,49 @@
+CREATE TABLE `users` (
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`username` VARCHAR(20) NOT NULL,
+	`password` VARCHAR(20) NOT NULL,
+	`nickname` VARCHAR(20) NOT NULL,
+	`profile_image_link` VARCHAR(100),
+	`profile_message` VARCHAR(100),
+	`is_account_deleted` TINYINT(1) NOT NULL DEFAULT 0,
+	`register_date` DATETIME NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `channels` (
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`name` VARCHAR(50) NOT NULL,
+	`creator` INT NOT NULL,
+	`link` VARCHAR(100) NOT NULL,
+	`max_user` INT NOT NULL,
+	`is_account_deleted` TINYINT(1) NOT NULL DEFAULT 0,
+	`creation_date` DATETIME NOT NULL,
+	FOREIGN KEY (`creator`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `chats` (
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`content` TEXT NOT NULL,
+	`sender` INT NOT NULL,
+	`channel` INT NOT NULL,
+	`creation_date` DATETIME NOT NULL,
+	FOREIGN KEY (`sender`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+	FOREIGN KEY (`channel`) REFERENCES `channels`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `blocks` (
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`blocker` INT NOT NULL,
+	`blocked` INT NOT NULL,
+	`block_date` DATETIME NOT NULL,
+	FOREIGN KEY (`blocker`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+	FOREIGN KEY (`blocked`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `follows` (
+	`id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	`follower` INT NOT NULL,
+	`followee` INT NOT NULL,
+	`follow_date` DATETIME NOT NULL,
+	FOREIGN KEY (`follower`) REFERENCES `users`(`id`) ON DELETE CASCADE,
+	FOREIGN KEY (`followee`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
