@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\schema",
+    "\\src",
+    "\\src\\controller",
+    "\\src\\controller\\article",
+    "\\src\\controller\\auth",
+    "\\src\\DAO",
+    "\\src\\lib",
+    "\\views",
+    "\\views\\auth"
+  ],
+  "SelectedNode": "\\src\\controller\\article\\ctrl.js",
+  "PreviewInSolutionExplorer": false
+}
